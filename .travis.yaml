@@ -16,7 +16,7 @@ before_install:
   - gcloud container clusters get-credentials dockercomplex
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t awesomens/react-test -f ./client/Dockerfile.dev ./client
-scripts:
+script:
   - docker run -e CI=true awesomens/react-test npm run test
 
 deploy:
